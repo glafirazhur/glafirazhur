@@ -1,2 +1,2 @@
 <h1>Glafira Zhur</h1>
-<h2>Cheerful a11y developer from Vilnius</h2>
+<h2>Cheerful Accessibility Expert from Bilbao</h2>
