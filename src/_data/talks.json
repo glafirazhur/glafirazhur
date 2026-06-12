@@ -1,0 +1,38 @@
+[
+  {
+    "title": "A11y in the Age of Vanilla Web Components",
+    "event": "Bilbao Web Dev Meetup",
+    "date": "2026-08-15",
+    "location": "Bilbao, Spain",
+    "description": "Explaining how to manage keyboard focus inside Shadow DOM elements, ensuring keyboard trapped navigation is avoided in native web interfaces.",
+    "links": {
+      "slides": "#",
+      "video": "#"
+    },
+    "upcoming": true
+  },
+  {
+    "title": "Demystifying CSS Focus-Visible: Outlines with High Contrast",
+    "event": "CSS Conf Europe",
+    "date": "2026-04-10",
+    "location": "Berlin, Germany",
+    "description": "A deep dive into styling modern, attractive focus outlines that meet WCAG 2.1 contrast standards without relying on browser default styles.",
+    "links": {
+      "slides": "#",
+      "video": "#"
+    },
+    "upcoming": false
+  },
+  {
+    "title": "Accessible SVG Animations without JS",
+    "event": "A11y Camp Spain",
+    "date": "2025-11-22",
+    "location": "Online / Virtual",
+    "description": "Demonstrating how to create interactive and accessible SVG graphics using native markup rules and pure CSS keyframes, while respecting prefers-reduced-motion media queries.",
+    "links": {
+      "slides": "#",
+      "code": "https://github.com/glafirazhur/accessible-svg-animations"
+    },
+    "upcoming": false
+  }
+]

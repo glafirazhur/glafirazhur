@@ -1,0 +1,35 @@
+---
+layout: layouts/base.html
+title: Blog
+permalink: /blog/
+description: Articles about digital accessibility, semantic HTML, and vanilla web styling.
+---
+<h1>Blog</h1>
+<p style="color: var(--text-muted); margin-bottom: var(--space-xl);">
+  A collection of thoughts, tutorials, and case studies about building a fast, inclusive, and semantic web.
+</p>
+
+<ul class="post-list">
+  {% assign all_posts = collections.posts | reverse %}
+  {% for post in all_posts %}
+    <li class="post-item">
+      <h2 class="item-title" style="margin: 0; border: none; padding: 0;">
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </h2>
+      <div class="item-meta">
+        Published on <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | postDate }}</time>
+        {% if post.data.tags %}
+          &bull;
+          {% for tag in post.data.tags %}
+            {% if tag != "posts" %}
+              <span class="badge">{{ tag }}</span>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+      <p class="item-description">{{ post.data.description }}</p>
+    </li>
+  {% else %}
+    <li>No articles found. Check back later!</li>
+  {% endfor %}
+</ul>

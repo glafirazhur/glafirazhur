@@ -1,0 +1,26 @@
+---
+layout: layouts/base.html
+---
+<article class="article-content">
+  <header class="article-header">
+    <h1 class="article-title">{{ title }}</h1>
+    <div class="item-meta">
+      Published on <time datetime="{{ date | date: '%Y-%m-%d' }}">{{ date | postDate }}</time>
+      {% if tags %}
+        &bull;
+        {% for tag in tags %}
+          {% if tag != "posts" %}
+            <span class="badge">{{ tag }}</span>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </header>
+  <div class="article-body">
+    {{ content }}
+  </div>
+  
+  <p style="margin-top: var(--space-2xl); font-size: var(--text-sm);">
+    <a href="/blog/">&larr; Back to all blog posts</a>
+  </p>
+</article>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/a11y.css">
+</head>
+<body>
+  <!-- Keyboard A11y Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="site-wrapper">
+    {% include "components/header.html" %}
+
+    <main id="main-content">
+      {{ content }}
+    </main>
+
+    {% include "components/footer.html" %}
+  </div>
+</body>
+</html>

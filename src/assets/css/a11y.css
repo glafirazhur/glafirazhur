@@ -1,0 +1,106 @@
+/* --- Accessibility & Assistive Technology Utilities --- */
+
+/* 
+  Screen Reader Only Helper
+  Hides content visually while keeping it readable by screen readers.
+*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 
+  Skip Link Style
+  Positioned off-screen, but transitions into view at the very top of the window when focused by a keyboard (tab).
+*/
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 0 0 8px 8px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: var(--text-sm);
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* 
+  Enhanced Accessible Keyboard Focus Rings
+  Uses :focus-visible so focus rings are only shown for keyboard navigation.
+  Resets default outlines and sets custom offsets to guarantee a 3:1 contrast ratio.
+*/
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Custom exception for focusable elements inside components */
+.nav-links a:focus-visible {
+  outline-offset: 6px;
+}
+
+/* Print CSS Stylesheet Defaults */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .talk-links,
+  .badge-upcoming {
+    display: none !important;
+  }
+
+  .site-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  main {
+    margin-top: 0 !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    color: #333333;
+  }
+
+  h2 {
+    page-break-after: avoid;
+  }
+
+  blockquote, pre {
+    page-break-inside: avoid;
+    border-left: 3px solid #333;
+  }
+}
