@@ -4,52 +4,52 @@ title: Home
 ---
 <section class="hero">
   <h1>Hi, I'm {{ site.author.name }}.</h1>
-  <p style="font-size: var(--text-lg); color: var(--text-muted); line-height: 1.6; margin-bottom: var(--space-xl);">
+  <p class="page-intro">
     {{ site.author.bio }}
   </p>
 </section>
 
-<section class="recent-posts" style="margin-top: var(--space-2xl);">
+<section class="recent-posts section-spaced">
   <h2>Recent Articles</h2>
   <ul class="post-list">
     {% assign recent_posts = collections.posts | reverse %}
     {% for post in recent_posts limit:2 %}
-      <li class="post-item">
-        <h3 class="item-title">
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
-        </h3>
-        <div class="item-meta">
-          Published on <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | postDate }}</time>
-        </div>
-        <p class="item-description">{{ post.data.description }}</p>
-      </li>
+    <li class="post-item">
+      <h3 class="item-title">
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </h3>
+      <div class="item-meta">
+        Published on <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | postDate }}</time>
+      </div>
+      <p class="item-description">{{ post.data.description }}</p>
+    </li>
     {% else %}
-      <li>No posts published yet.</li>
+    <li>No posts published yet.</li>
     {% endfor %}
   </ul>
   <p><a href="/blog/">View all articles &rarr;</a></p>
 </section>
 
-<section class="upcoming-talks" style="margin-top: var(--space-2xl);">
+<section class="upcoming-talks section-spaced">
   <h2>Upcoming Speaking</h2>
   <ul class="talk-list">
     {% assign upcoming_found = false %}
     {% for talk in talks %}
-      {% if talk.upcoming %}
-        {% assign upcoming_found = true %}
-        <li class="talk-item">
-          <h3 class="item-title">{{ talk.title }}</h3>
-          <div class="item-meta">
-            <span class="badge badge-upcoming">Upcoming</span>
-            <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
-          </div>
-          <p class="item-description">{{ talk.description }}</p>
-        </li>
-      {% endif %}
+    {% if talk.upcoming %}
+    {% assign upcoming_found = true %}
+    <li class="talk-item">
+      <h3 class="item-title">{{ talk.title }}</h3>
+      <div class="item-meta">
+        <span class="badge badge-upcoming">Upcoming</span>
+        <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
+      </div>
+      <p class="item-description">{{ talk.description }}</p>
+    </li>
+    {% endif %}
     {% endfor %}
-    
+
     {% if upcoming_found == false %}
-      <p style="color: var(--text-muted);">No upcoming speaking engagements currently scheduled.</p>
+    <p class="text-muted">No upcoming speaking engagements currently scheduled.</p>
     {% endif %}
   </ul>
   <p><a href="/talks/">View past talks &rarr;</a></p>

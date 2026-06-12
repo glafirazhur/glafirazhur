@@ -5,8 +5,9 @@ permalink: /talks/
 description: List of public speaking engagements, panels, and workshops by Glafira Zhur.
 ---
 <h1>Talks</h1>
-<p style="color: var(--text-muted); margin-bottom: var(--space-xl);">
-  Sharing my findings, experiments, and techniques on digital accessibility and front-end development at meetups and conferences.
+<p class="page-intro">
+  Sharing my findings, experiments, and techniques on digital accessibility and front-end development at meetups and
+  conferences.
 </p>
 
 <section class="talks-section">
@@ -14,51 +15,52 @@ description: List of public speaking engagements, panels, and workshops by Glafi
   <ul class="talk-list">
     {% assign upcoming_count = 0 %}
     {% for talk in talks %}
-      {% if talk.upcoming %}
-        {% assign upcoming_count = upcoming_count | plus: 1 %}
-        <li class="talk-item">
-          <h3 class="item-title">{{ talk.title }}</h3>
-          <div class="item-meta">
-            <span class="badge badge-upcoming">Upcoming</span>
-            <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
-          </div>
-          <p class="item-description">{{ talk.description }}</p>
-          <div class="talk-links">
-            {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}">Slides</a>{% endif %}
-            {% if talk.links.video and talk.links.video != "#" %}<a href="{{ talk.links.video }}">Video</a>{% endif %}
-          </div>
-        </li>
-      {% endif %}
+    {% if talk.upcoming %}
+    {% assign upcoming_count = upcoming_count | plus: 1 %}
+    <li class="talk-item">
+      <h3 class="item-title">{{ talk.title }}</h3>
+      <div class="item-meta">
+        <span class="badge badge-upcoming">Upcoming</span>
+        <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
+      </div>
+      <p class="item-description">{{ talk.description }}</p>
+      <div class="talk-links">
+        {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}">Slides</a>{% endif %}
+        {% if talk.links.video and talk.links.video != "#" %}<a href="{{ talk.links.video }}">Video</a>{% endif %}
+      </div>
+    </li>
+    {% endif %}
     {% endfor %}
     {% if upcoming_count == 0 %}
-      <p style="color: var(--text-muted);">No upcoming talks scheduled. If you are looking for a speaker on web accessibility or vanilla CSS, feel free to reach out!</p>
+    <p class="text-muted">No upcoming talks scheduled. If you are looking for a speaker on web accessibility or vanilla
+      CSS, feel free to reach out!</p>
     {% endif %}
   </ul>
 </section>
 
-<section class="talks-section" style="margin-top: var(--space-2xl);">
+<section class="talks-section section-spaced">
   <h2>Past Talks</h2>
   <ul class="talk-list">
     {% assign past_count = 0 %}
     {% for talk in talks %}
-      {% unless talk.upcoming %}
-        {% assign past_count = past_count | plus: 1 %}
-        <li class="talk-item">
-          <h3 class="item-title">{{ talk.title }}</h3>
-          <div class="item-meta">
-            <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
-          </div>
-          <p class="item-description">{{ talk.description }}</p>
-          <div class="talk-links">
-            {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}">Slides</a>{% endif %}
-            {% if talk.links.video and talk.links.video != "#" %}<a href="{{ talk.links.video }}">Video</a>{% endif %}
-            {% if talk.links.code %}<a href="{{ talk.links.code }}">Code Repository</a>{% endif %}
-          </div>
-        </li>
-      {% endunless %}
+    {% unless talk.upcoming %}
+    {% assign past_count = past_count | plus: 1 %}
+    <li class="talk-item">
+      <h3 class="item-title">{{ talk.title }}</h3>
+      <div class="item-meta">
+        <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
+      </div>
+      <p class="item-description">{{ talk.description }}</p>
+      <div class="talk-links">
+        {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}">Slides</a>{% endif %}
+        {% if talk.links.video and talk.links.video != "#" %}<a href="{{ talk.links.video }}">Video</a>{% endif %}
+        {% if talk.links.code %}<a href="{{ talk.links.code }}">Code Repository</a>{% endif %}
+      </div>
+    </li>
+    {% endunless %}
     {% endfor %}
     {% if past_count == 0 %}
-      <p style="color: var(--text-muted);">No past talks listed.</p>
+    <p class="text-muted">No past talks listed.</p>
     {% endif %}
   </ul>
 </section>

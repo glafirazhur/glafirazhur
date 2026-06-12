@@ -420,6 +420,59 @@ a:hover, a:focus {
   cursor: help;
 }
 
+/* Page intro description */
+.page-intro {
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+/* Section spacing (reusable top margin) */
+.section-spaced {
+  margin-top: var(--space-2xl);
+}
+
+/* Post back-navigation link */
+.post-back-link {
+  margin-top: var(--space-2xl);
+  font-size: var(--text-sm);
+}
+
+/* Item title reset — used when an h2/h3 appears inside a list card */
+.item-title--reset {
+  margin: 0 0 var(--space-2xs) 0;
+  border: none;
+  padding: 0;
+}
+
+/* Consulting / callout block */
+.callout {
+  margin-top: var(--space-2xl);
+  padding: var(--space-md);
+  background-color: var(--bg-secondary);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+}
+
+.callout-title {
+  margin-top: 0;
+  font-size: var(--text-md);
+  border: none;
+  padding-bottom: 0;
+}
+
+.callout-body {
+  margin-bottom: 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Empty / placeholder text */
+.text-muted {
+  color: var(--text-muted);
+}
+
 /* Contact lists */
 .contact-links {
   list-style: none;
