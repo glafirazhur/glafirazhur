@@ -32,8 +32,8 @@ description: List of public speaking engagements, panels, and workshops by Glafi
     {% endif %}
     {% endfor %}
     {% if upcoming_count == 0 %}
-    <p class="text-muted">No upcoming talks scheduled. If you are looking for a speaker on web accessibility or vanilla
-      CSS, feel free to reach out!</p>
+    <li class="text-muted">No upcoming talks scheduled. If you are looking for a speaker on web accessibility or vanilla
+      CSS, feel free to reach out!</li>
     {% endif %}
   </ul>
 </section>
@@ -63,7 +63,7 @@ description: List of public speaking engagements, panels, and workshops by Glafi
     {% endunless %}
     {% endfor %}
     {% if past_count == 0 %}
-    <p class="text-muted">No past talks listed.</p>
+    <li class="text-muted">No past talks listed.</li>
     {% endif %}
   </ul>
 </section>

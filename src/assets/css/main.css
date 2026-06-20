@@ -5,17 +5,17 @@
   color-scheme: light dark;
 
   /* Color Palette - Responsive using light-dark() */
-  --bg-primary: light-dark(#faedff, #09090b);
+  --bg-primary: light-dark(#f5ebf8, #09090b);
   --bg-secondary: light-dark(#f4f4f5, #18181b);
   --bg-overlay: light-dark(rgba(250, 237, 255, 0.85), rgba(9, 9, 11, 0.85));
   --text-primary: light-dark(#18181b, #f4f4f5);
   --text-muted: light-dark(#52525b, #a1a1aa);
   --accent: light-dark(#4f46e5, #818cf8);
-  --accent-muted: light-dark(#19917b, #d0c465);
+  --accent-muted: light-dark(#02745f, #d0c465);
   --accent-hover: light-dark(#4338ca, #6366f1);
   --accent-button: light-dark(#4f46e5, #4f46e5);
   --accent-button-hover: light-dark(#4338ca, #6366f1);
-  --accent-button-text: light-dark(#e4e4e7, #18181b);
+  --accent-button-text: light-dark(#e4e4e7, #e4e4e7);
   --accent-button-text-focus: light-dark(#e4e4e7, #e4e4e7);
   --border: light-dark(#e4e4e7, #27272a);
   --code-bg: light-dark(#f4f4f5, #18181b);
