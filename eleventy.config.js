@@ -6,6 +6,8 @@ module.exports = function (eleventyConfig) {
 
   // Copy static assets to output build folder
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({ "src/assets/images/favicon.ico": "favicon.ico" });
+  eleventyConfig.addPassthroughCopy({ "src/site.webmanifest": "site.webmanifest" });
 
   // Format date helper for posts and events
   eleventyConfig.addFilter("postDate", (dateObj) => {
