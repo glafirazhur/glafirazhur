@@ -16,6 +16,20 @@
   <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
 
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{{ site.url }}/assets/images/social-preview.png">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{{ site.url }}/assets/images/social-preview.png">
+
   <!-- Theme Initialization (Pre-render FOUC Prevention) -->
   <script>
     (function () {
