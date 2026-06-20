@@ -1,18 +1,17 @@
 {
-  "name": "Glafira Zhur",
-  "title": "Glafira Zhur — Accessibility Expert",
-  "description": "Personal minimalistic blog of Glafira Zhur. Accessibility expert from Bilbao. Documenting semantic web design, vanilla CSS, and digital inclusivity.",
-  "url": "https://glafirazhur.com",
+  "name": "Glasha Zhur",
+  "title": "Glasha Zhur — Accessibility Specialist",
+  "description": "Personal blog of Glasha Zhur. Accessibility specialist from Bilbao. Documenting semantic web design, vanilla CSS, and digital inclusivity.",
+  "url": "https://glashazhur.dev",
   "author": {
-    "name": "Glafira Zhur",
+    "name": "Glasha Zhur",
     "location": "Bilbao, Spain",
-    "bio": "Digital accessibility expert and front-end specialist from Bilbao. Passionate about semantic markup, vanilla web techniques, and ensuring the web is usable for everyone.",
-    "email": "hello@glafirazhur.com"
+    "bio": "Digital accessibility specialist and front-end enthusiast from Bilbao. Passionate about semantic markup, vanilla web techniques, and ensuring the web is usable for everyone.",
+    "email": "glafirazhur@gmail.com"
   },
   "socials": {
     "linkedin": "https://www.linkedin.com/in/glafira-zhur/",
-    "github": "https://github.com/glafirazhur",
-    "mastodon": "https://mastodon.social/@glafirazhur",
-    "bluesky": "https://bsky.app/profile/glafirazhur.com"
+    "x": "https://x.com/glafirazhur",
+    "github": "https://github.com/glafirazhur"
   }
 }
