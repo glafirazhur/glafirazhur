@@ -24,9 +24,9 @@ description: List of public speaking engagements, panels, and workshops by Glafi
         <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
       </div>
       <p class="item-description">{{ talk.description }}</p>
-      <div class="talk-links">
-        {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}">Slides</a>{% endif %}
+      <div class="talk-links">        
         {% if talk.links.video and talk.links.video != "#" %}<a href="{{ talk.links.video }}">Video</a>{% endif %}
+        {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}">Slides</a>{% endif %}
       </div>
     </li>
     {% endif %}
