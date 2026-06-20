@@ -1,30 +1,38 @@
 /* --- Modern Minimalist Design System & Layout --- */
 
 :root {
-  /* Color Palette - Light Mode Default */
-  --bg-primary: #fafafa;
-  --bg-secondary: #f4f4f5;
-  --text-primary: #18181b;
-  --text-muted: #52525b;
-  --accent: #4f46e5;
-  --accent-hover: #4338ca;
-  --border: #e4e4e7;
-  --code-bg: #f4f4f5;
-  --code-text: #18181b;
-  --code-comment: #52525b;
-  --code-keyword: #be185d;
-  --code-string: #0f766e;
-  --code-number: #92400e;
-  --code-function: #1d4ed8;
-  --code-tag: #b91c1c;
-  --code-attr: #6d28d9;
-  --code-operator: #0f172a;
-  --code-punctuation: #3f3f46;
+  /* Set color-scheme to allow light-dark() resolution */
+  color-scheme: light dark;
+
+  /* Color Palette - Responsive using light-dark() */
+  --bg-primary: light-dark(#faedff, #09090b);
+  --bg-secondary: light-dark(#f4f4f5, #18181b);
+  --text-primary: light-dark(#18181b, #f4f4f5);
+  --text-muted: light-dark(#52525b, #a1a1aa);
+  --accent: light-dark(#4f46e5, #818cf8);
+  --accent-muted: light-dark(#19917b, #d0c465);
+  --accent-hover: light-dark(#4338ca, #6366f1);
+  --accent-button: light-dark(#4f46e5, #4f46e5);
+  --accent-button-hover: light-dark(#4338ca, #6366f1);
+  --accent-button-text: light-dark(#e4e4e7, #18181b);
+  --accent-button-text-focus: light-dark(#e4e4e7, #e4e4e7);
+  --border: light-dark(#e4e4e7, #27272a);
+  --code-bg: light-dark(#f4f4f5, #18181b);
+  --code-text: light-dark(#18181b, #f4f4f5);
+  --code-comment: light-dark(#52525b, #a1a1aa);
+  --code-keyword: light-dark(#be185d, #f472b6);
+  --code-string: light-dark(#0f766e, #2dd4bf);
+  --code-number: light-dark(#92400e, #fbbf24);
+  --code-function: light-dark(#1d4ed8, #60a5fa);
+  --code-tag: light-dark(#b91c1c, #f87171);
+  --code-attr: light-dark(#6d28d9, #c084fc);
+  --code-operator: light-dark(#0f172a, #e2e8f0);
+  --code-punctuation: light-dark(#3f3f46, #a1a1aa);
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  
+
   /* Fluid typography using clamp() */
   --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
   --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
@@ -47,32 +55,10 @@
   --max-width: 68ch;
 }
 
-/* Dark Mode Preference */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-primary: #09090b;
-    --bg-secondary: #18181b;
-    --text-primary: #f4f4f5;
-    --text-muted: #a1a1aa;
-    --accent: #818cf8;
-    --accent-hover: #6366f1;
-    --border: #27272a;
-    --code-bg: #18181b;
-    --code-text: #f4f4f5;
-    --code-comment: #a1a1aa;
-    --code-keyword: #f472b6;
-    --code-string: #2dd4bf;
-    --code-number: #fbbf24;
-    --code-function: #60a5fa;
-    --code-tag: #f87171;
-    --code-attr: #c084fc;
-    --code-operator: #e2e8f0;
-    --code-punctuation: #a1a1aa;
-  }
-}
-
 /* CSS Reset & Defaults */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -115,7 +101,10 @@ main {
 }
 
 /* Typography elements */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 700;
   line-height: 1.25;
   color: var(--text-primary);
@@ -123,10 +112,24 @@ h1, h2, h3, h4 {
   margin-bottom: var(--space-sm);
 }
 
-h1 { font-size: var(--text-2xl); margin-top: 0; }
-h2 { font-size: var(--text-xl); border-bottom: 1px solid var(--border); padding-bottom: var(--space-xs); }
-h3 { font-size: var(--text-lg); }
-h4 { font-size: var(--text-md); }
+h1 {
+  font-size: var(--text-2xl);
+  margin-top: 0;
+}
+
+h2 {
+  font-size: var(--text-xl);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-xs);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+h4 {
+  font-size: var(--text-md);
+}
 
 p {
   margin-top: 0;
@@ -141,7 +144,8 @@ a {
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: var(--accent-hover);
   text-decoration-thickness: 2px;
 }
@@ -166,6 +170,12 @@ a:hover, a:focus {
   color: var(--accent);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
 .nav-links {
   display: flex;
   gap: var(--space-lg);
@@ -188,26 +198,98 @@ a:hover, a:focus {
   padding-bottom: 2px;
 }
 
+/* Theme Switcher Toggle */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-secondary);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+}
+
+/* Toggle icon visibility and rotation */
+.theme-toggle .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
+  position: absolute;
+}
+
+.theme-toggle .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Transition to dark mode: sun rotates into view, moon rotates out */
+:root[data-theme="dark"] .theme-toggle .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+:root[data-theme="dark"] .theme-toggle .moon-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+}
+
+/* Also handle case where no preference is saved, but system is dark */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle .moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+  }
+}
+
 /* Lists and Collections */
-.post-list, .talk-list {
+.post-list,
+.talk-list {
   list-style: none;
   padding: 0;
   margin: var(--space-xl) 0;
 }
 
-.post-item, .talk-item {
+.post-item,
+.talk-item {
   margin-bottom: var(--space-xl);
   padding-bottom: var(--space-md);
   border-bottom: 1px dashed var(--border);
 }
 
-.post-item:last-child, .talk-item:last-child {
+.post-item:last-child,
+.talk-item:last-child {
   border-bottom: none;
 }
 
 .item-title {
-  margin: 0 0 var(--space-2xs) 0;
+  margin: 0 0 var(--space-lg) 0;
   font-size: var(--text-lg);
+  line-height: var(--space-xl);
 }
 
 .item-title a {
@@ -222,7 +304,7 @@ a:hover, a:focus {
 
 .item-meta {
   font-size: var(--text-xs);
-  color: var(--text-muted);
+  color: var(--accent-muted);
   margin-bottom: var(--space-xs);
 }
 
@@ -235,7 +317,7 @@ a:hover, a:focus {
 .talk-links {
   display: flex;
   gap: var(--space-md);
-  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
   font-size: var(--text-sm);
 }
 
@@ -253,14 +335,8 @@ a:hover, a:focus {
 }
 
 .badge-upcoming {
-  background-color: #fef3c7;
-  color: #92400e;
-}
-@media (prefers-color-scheme: dark) {
-  .badge-upcoming {
-    background-color: #78350f;
-    color: #fef3c7;
-  }
+  background-color: light-dark(#fef3c7, #78350f);
+  color: light-dark(#92400e, #fef3c7);
 }
 
 /* Article Styles (Singular Post) */
@@ -335,14 +411,17 @@ a:hover, a:focus {
 .article-content pre::-webkit-scrollbar {
   height: 8px;
 }
+
 .article-content pre::-webkit-scrollbar-track {
   background: var(--code-bg);
   border-radius: 0 0 8px 8px;
 }
+
 .article-content pre::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 4px;
 }
+
 .article-content pre::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
@@ -412,6 +491,7 @@ a:hover, a:focus {
 .token.bold {
   font-weight: bold;
 }
+
 .token.italic {
   font-style: italic;
 }

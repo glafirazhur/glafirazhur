@@ -50,12 +50,15 @@ description: List of public speaking engagements, panels, and workshops by Glafi
       <div class="item-meta">
         <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
       </div>
-      <p class="item-description">{{ talk.description }}</p>
       <div class="talk-links">
-        {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}">Slides</a>{% endif %}
-        {% if talk.links.video and talk.links.video != "#" %}<a href="{{ talk.links.video }}">Video</a>{% endif %}
-        {% if talk.links.code %}<a href="{{ talk.links.code }}">Code Repository</a>{% endif %}
+        {% if talk.links.slides and talk.links.slides != "#" %}<a href="{{ talk.links.slides }}" target="_blank"
+          rel="noopener">Slides</a>{% endif %}
+        {% if talk.links.video and talk.links.video != "#" %}<a href="{{ talk.links.video }}" target="_blank"
+          rel="noopener">Video</a>{% endif %}
+        {% if talk.links.code %}<a href="{{ talk.links.code }}" target="_blank" rel="noopener">Code Repository</a>{%
+        endif %}
       </div>
+      <p class="item-description">{{ talk.description }}</p>
     </li>
     {% endunless %}
     {% endfor %}

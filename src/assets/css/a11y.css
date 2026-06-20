@@ -25,8 +25,8 @@
   top: -100px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--accent);
-  color: #ffffff;
+  background-color: var(--accent-button);
+  color: var(--accent-button-text);
   padding: var(--space-sm) var(--space-lg);
   border-radius: 0 0 8px 8px;
   font-weight: 700;
@@ -39,8 +39,7 @@
 
 .skip-link:focus {
   top: 0;
-  outline: 3px solid var(--text-primary);
-  outline-offset: 2px;
+  color: var(--accent-button-text-focus);
 }
 
 /* 
@@ -99,7 +98,8 @@
     page-break-after: avoid;
   }
 
-  blockquote, pre {
+  blockquote,
+  pre {
     page-break-inside: avoid;
     border-left: 3px solid #333;
   }
