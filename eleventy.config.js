@@ -22,6 +22,54 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // Filter to extract YouTube embed URL from standard/short share links
+  eleventyConfig.addFilter("youtubeEmbedUrl", (url) => {
+    if (!url) return "";
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    if (match && match[2].length === 11) {
+      return `https://www.youtube.com/embed/${match[2]}`;
+    }
+    return "";
+  });
+
+  // Dynamic breadcrumbs filter using collections
+  eleventyConfig.addFilter("breadcrumbs", function(url, collections) {
+    if (!url || url === "/") return [];
+
+    const parts = url.split("/").filter(Boolean);
+    const crumbs = [];
+
+    // Always include Home as the root breadcrumb
+    crumbs.push({
+      title: "Home",
+      url: "/"
+    });
+
+    let currentUrl = "/";
+    for (let i = 0; i < parts.length; i++) {
+      currentUrl += parts[i] + "/";
+      
+      // Search all pages in collections to find a matching URL
+      const foundPage = collections && collections.all ? collections.all.find(p => p.url === currentUrl) : null;
+      
+      let title = parts[i];
+      if (foundPage && foundPage.data && foundPage.data.title) {
+        title = foundPage.data.title;
+      } else {
+        // Fallback: title case the URL segment
+        title = parts[i].charAt(0).toUpperCase() + parts[i].slice(1).replace(/-/g, " ");
+      }
+      
+      crumbs.push({
+        title: title,
+        url: currentUrl
+      });
+    }
+
+    return crumbs;
+  });
+
   return {
     dir: {
       input: "src",

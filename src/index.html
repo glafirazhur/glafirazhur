@@ -3,14 +3,14 @@ layout: layouts/base.html
 title: Digital Accessibility Blog
 ---
 <section class="hero">
-  <h1>Hi, I'm {{ site.author.name }}.</h1>
+  <h1>Hi, I'm {{ site.author.name }}</h1>
   <p class="page-intro">
     {{ site.author.bio }}
   </p>
 </section>
 
-<section class="recent-posts section-spaced">
-  <h2>Recent Articles</h2>
+<section aria-labelledby="recent-articles" class="recent-posts section-spaced">
+  <h2 id="recent-articles">Recent Articles</h2>
   <ul class="post-list">
     {% assign recent_posts = collections.posts | reverse %}
     {% for post in recent_posts limit:2 %}
@@ -30,27 +30,26 @@ title: Digital Accessibility Blog
   <p><a href="/blog/">View all articles &rarr;</a></p>
 </section>
 
-<section class="upcoming-talks section-spaced">
-  <h2>Upcoming Speaking</h2>
+<section aria-labelledby="speaking" class="upcoming-talks section-spaced">
+  <h2 id="speaking">Speaking</h2>
   <ul class="talk-list">
-    {% assign upcoming_found = false %}
-    {% for talk in talks %}
-    {% if talk.upcoming %}
-    {% assign upcoming_found = true %}
+    {% assign recent_talks = collections.talks | reverse %}
+    {% for talk in recent_talks limit:2 %}
     <li class="talk-item">
-      <h3 class="item-title">{{ talk.title }}</h3>
-      <div class="item-meta">
-        <span class="badge badge-upcoming">Upcoming</span>
-        <strong>{{ talk.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{ talk.location }}
+      <h3 class="item-title" id="talk-title-{{ forloop.index }}">
+        {% if talk.data.upcoming %} <span class="badge badge-upcoming">Upcoming</span> {% endif %}
+        {{ talk.data.title }}
+      </h3>
+      <div class="item-meta"> <strong>{{ talk.data.event }}</strong> &bull; {{ talk.date | postDate }} &bull; {{
+        talk.data.location }}
       </div>
-      <p class="item-description">{{ talk.description }}</p>
+      <p class="item-description">{{ talk.data.description }}</p>
+      <p><a aria-labelledby="talk-link-{{ forloop.index }} talk-title-{{ forloop.index }}" id="talk-link-{{ forloop.index }}"
+          href="{{ talk.url }}">View
+          talk &rarr;</a></p>
     </li>
-    {% endif %}
     {% endfor %}
 
-    {% if upcoming_found == false %}
-    <li class="text-muted">No upcoming speaking engagements currently scheduled.</li>
-    {% endif %}
   </ul>
-  <p><a href="/talks/">View past talks &rarr;</a></p>
+  <p><a href="/talks/">View all talks &rarr;</a></p>
 </section>

@@ -1,0 +1,16 @@
+{% assign crumbs = page.url | breadcrumbs: collections %}
+{% if crumbs.size > 0 %}
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+  <ol class="breadcrumbs-list">
+    {% for crumb in crumbs %}
+    <li class="breadcrumbs-item">
+      {% if forloop.last %}
+      <span aria-current="page" class="breadcrumbs-current">{{ crumb.title }}</span>
+      {% else %}
+      <a href="{{ crumb.url }}" class="breadcrumbs-link">{{ crumb.title }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}

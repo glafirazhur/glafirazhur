@@ -1,0 +1,34 @@
+---
+layout: layouts/base.html
+---
+<article class="article-content">
+  <header class="article-header">
+    <h1 class="article-title">{{ title }}</h1>
+    <div class="item-meta">
+      <strong>{{ event }}</strong> &bull; {{ date | postDate }} &bull; {{ location }}
+    </div>
+  </header>
+
+  {% if links.video and links.video != '#' %}
+  {% if links.video contains 'youtube.com' or links.video contains 'youtu.be' %}
+  <iframe class="talk-video-embed" src="{{ links.video | youtubeEmbedUrl }}"
+    title="YouTube video player for {{ title }}" width="560" height="315" loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+  {% endif %}
+  {% endif %}
+
+  <div class="article-body">
+    {{ content }}
+  </div>
+
+  <div class="article-links">
+    {% if links.video and links.video != '#' %}<a href="{{ links.video }}">Video</a>{% endif %}
+    {% if links.slides and links.slides != '#' %}<a href="{{ links.slides }}">Slides</a>{% endif %}
+  </div>
+
+  <p class="post-back-link">
+    <a href="/talks/">&larr; Back to all talks</a>
+  </p>
+</article>
